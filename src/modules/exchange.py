@@ -1,8 +1,8 @@
 class Change_Coins:
     def __init__(self, coins10, coins5, coins2, coins1):
-        existing_coins [coins10,coins5,coins2,coins1]
+        self. existing_coins =  [coins10,coins5,coins2,coins1]
 
-    def exchange(price, cash):
+    def exchange(self, price, cash):
         change = cash - price
         print("Change:"+str(change)) 
         if(change<=100):
@@ -27,7 +27,7 @@ class Change_Coins:
             return coins
     
 
-    def logic_coins(coins):
+    def logic_coins(slef, coins):
         logic_coins = [0,0,0,0]
         if (existing_coins[0] >= coins[0]):
             logic_coins[0] = coins[0]
@@ -59,17 +59,17 @@ class Change_Coins:
      
         return logic_coins
     
-    def pop_coins(given_change):
-        global existing_coins
-        existing_coins[0]= existing_coins[0] - given_change[0]
-        existing_coins[1]= existing_coins[1] - given_change[1]
-        existing_coins[2]= existing_coins[2] - given_change[2]
-        existing_coins[3]= existing_coins[3] - given_change[3] 
+    def pop_coins(self, given_change):
+        self.existing_coins
+        self.existing_coins[0]= existing_coins[0] - given_change[0]
+        self.existing_coins[1]= existing_coins[1] - given_change[1]
+        self.existing_coins[2]= existing_coins[2] - given_change[2]
+        self.existing_coins[3]= existing_coins[3] - given_change[3] 
 
-    def add_coins(string_add):
-        global existing_coins
-        existing_coins[0]= existing_coins[0] - string_add[0]
-        existing_coins[1]= existing_coins[1] - string_add[1]
-        existing_coins[2]= existing_coins[2] - string_add[2]
-        existing_coins[3]= existing_coins[3] - string_add[3] 
+    def add_coins(self, string_add):
+        self.existing_coins
+        self.existing_coins[0]= existing_coins[0] - string_add[0]
+        self.existing_coins[1]= existing_coins[1] - string_add[1]
+        self.existing_coins[2]= existing_coins[2] - string_add[2]
+        self.existing_coins[3]= existing_coins[3] - string_add[3] 
     
