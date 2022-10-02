@@ -1,43 +1,48 @@
 # Equipo 6
-from tkinter import *
+import tkinter
+import tkinter.messagebox
 import customtkinter
 
-customtkinter.set_appearance_mode("system")
-customtkinter.set_default_color_theme("dark-blue")
-root = customtkinter.CTk()
-from PIL import Image, ImageTk
-class MainWindow():
-    def __init__(self, root, title, geometry, message):
-        pass
+customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
+customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
+theme= {
+    "red":"#E63946",
+    "lg_blue":"#A8DADC",
+    "dg_blue":"#1D3557",
+    "blue":"#457B9D",
+    "green":"#5CE639"
+}
 
-class Widget_Canva ():
-    def __init__(self,  size, row, column, master):
-        myFrame = Frame(master)
-        myFrame.grid(row= row, column = column)       
+class App(customtkinter.CTk):
+
+    WIDTH = 1920
+    HEIGHT = 1080
+
+    def __init__(self):
+        super().__init__()
+
+        self.title("CustomTkinter complex_example.py")
+        self.geometry("1920x1080")
         
 
-class Widget_Button_IMG():
-    def __init__(self, row, column, master, size, image, command, text, width, height, compound, fg_color, bg_color, hover_color):
-        button_img = ImageTk.PhotoImage(Image.open("img/"+image).resize((size), Image.ANTIALIAS))
-        myButton = customtkinter.CTkButton(master= master, image=button_img, text= text, width = width, height = height, compound= compound,
-            fg_color=fg_color, bg_color=bg_color, hover_color= hover_color)
-        myButton.grid(row = row, column = column)
+        # ============ create two frames ============
 
-class Widget_Button():
-    def __init__(self, row, column, master, size, command, text, width, height, fg_color, bg_color, hover_color):
-        myButton = customtkinter.CTkButton(master= master, text= text, width = width, height = height, fg_color=fg_color, bg_color=bg_color, 
-            hover_color= hover_color)
-        myButton.grid(row = row, column = column)
+        # configure grid layout (2x2)
+        self.grid_columnconfigure(1, weight=1)
+        self.grid_rowconfigure(1, weight=1)
+
+        self.frame_left = customtkinter.CTkFrame(master=self, width=1200,height=1030, corner_radius=0, fg_color=theme["lg_blue"])
+        self.frame_left.grid(row=1, column=0, sticky="nw")
+        
+        self.frame_right = customtkinter.CTkFrame(master=self, width=720,height=1030, corner_radius=0, fg_color=theme["green"])
+        self.frame_right.grid(row=1, column=1, sticky="nwse")
+        
+        self.frame_top = customtkinter.CTkFrame(master=self, width=1920,height=50, corner_radius=0, fg_color=theme["red"])
+        self.frame_top.grid(row=0, column=0, sticky="nw")
+
         
 
-class Entry():
-    def __init__(self, row, column, master, image):
-        pass
-class Icon():
-    def __init__(self, row, column, master, image):
-        pass
 
-e = Widget_Canva("500x500", 1, 1,root)
-b = Widget_Canva("200x200", 2, 1,root)
-
-root.mainloop()
+if __name__ == "__main__":
+    app = App()
+    app.mainloop()
